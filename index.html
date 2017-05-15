@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HAyyyaaaa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div><div>
+    <script>
+        let data = [];
+        
+        function strokefoot(player){
+            player.life -= 10;
+        }
+        function strokehead(player, player2){
+            player.life -= 20;
+            player2.life -= 5;
+        }
+        function care(player){
+            player.life += 15;
+        }
+
+        let perso1 = new Object();
+        perso1.life = 100;
+        let perso2 = new Object();
+        perso2.life = 100;
+   
+        data.push(perso1); // data[0]
+        data.push(perso2); // data[1]
+
+        while(data[1].life !== 0 && data[0].life !== 0){
+            
+            let entre = prompt("Coup de pied a   Coup de téte z   Potion e");
+            
+            switch(entre){
+                case "a" :
+                    strokefoot(data[1]);
+                break;
+                case "z" :
+                    strokehead(data[1], data[0]);
+                break;
+                case "e" :
+                    care(data[0]);
+                break;
+                case "q" :
+                    strokefoot(data[0]);
+                break;
+                case "s" :
+                    strokehead(data[0], data[1]);
+                break;
+                case "d" :
+                    care(data[1]);
+                break;
+                }
+            
+            console.log(data[0].life);
+            console.log(data[1].life);
+        }
+    </script>
+</body>
+</html>
