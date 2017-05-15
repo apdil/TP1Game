@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div><div>
+    <div class="ninjagirl">
+        <div ></div>
+    <div>
     <script>
+        
         let data = [];
         
         function strokefoot(player){
@@ -31,18 +34,19 @@
         data.push(perso1); // data[0]
         data.push(perso2); // data[1]
 
-        while(data[1].life !== 0 && data[0].life !== 0){
+        //while(data[1].life !== 0 && data[0].life !== 0){ // pour l'instant boucle infini donc false
             
-            let entre = prompt("Coup de pied a   Coup de téte z   Potion e");
-            
+            document.addEventListener("keypress", function(e){
+            let entre = e.keyCode;
+            console.log(entre);
             switch(entre){
-                case "a" :
+                case 97 :
                     strokefoot(data[1]);
                 break;
-                case "z" :
+                case 122 :
                     strokehead(data[1], data[0]);
                 break;
-                case "e" :
+                case 101 :
                     care(data[0]);
                 break;
                 case "q" :
@@ -58,7 +62,8 @@
             
             console.log(data[0].life);
             console.log(data[1].life);
-        }
+            });
+        //}
     </script>
 </body>
 </html>
