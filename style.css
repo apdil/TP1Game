@@ -1,56 +1,118 @@
-div img {
-    height: 30em;
-    width: 60em;
-    background-image: no-repeat;
+html{
+    height:34em;
+    width:91%;
+    margin: auto;
+}
+body {
+    background-image: url("img/fond.gif");
+    background-repeat: no-repeat;
+    background-color: black;
+}
+.fxRow{
+    display:flex;
 }
 
-.ninja{
-    animation: ninjagir 1s;
+.jsSpaceAround{
+    justify-content: space-around;
+}
+
+.ninjagirl{
+    animation: ninjaGirlStop 1s;
     animation-timing-function: step-end;
     animation-iteration-count: infinite;
     height:7em;
     width:4em;
     position:relative;
-    margin-top:-10em;
+    
 }
-@keyframes ninjagir{
+.ninjaboy{
+    animation: ninjaBoyStop 1s;
+    animation-timing-function: step-end;
+    animation-iteration-count: infinite;
+    height:7em;
+    width:4em;
+    position:relative;
+}
+@keyframes ninjaGirlStop{
     0%{
-        background-image: url(img/ninjag/attack1.png);
+        background-image: url(img/ninjag/stop1.png);
         background-size: 4em 7em;
     }
     20%{
-        background-image: url(img/ninjag/attack2.png);
+        background-image: url(img/ninjag/stop2.png);
 
     }
     30%{
-        background-image: url(img/ninjag/attack3.png);
+        background-image: url(img/ninjag/stop3.png);
 
     }
     40%{
-        background-image: url(img/ninjag/attack4.png);
+        background-image: url(img/ninjag/stop4.png);
 
     }
     50%{
-        background-image: url(img/ninjag/attack5.png);
+        background-image: url(img/ninjag/stop5.png);
 
     }
     60%{
-        background-image: url(img/ninjag/attack6.png);
+        background-image: url(img/ninjag/stop6.png);
 
     }
     70%{
-        background-image: url(img/ninjag/attack7.png);
+        background-image: url(img/ninjag/stop7.png);
 
     }
     80%{
-        background-image: url(img/ninjag/attack8.png);
+        background-image: url(img/ninjag/stop8.png);
 
     }
     90%{
-        background-image: url(img/ninjag/attack9.png);
+        background-image: url(img/ninjag/stop9.png);
 
     }
     100%{
-        background-image: url(img/ninjag/attack10.png);
+        background-image: url(img/ninjag/stop10.png);
+    }
+}
+
+@keyframes ninjaBoyStop{
+    0%{
+        background-image: url(img/ninjab/stop1.png);
+        background-size: 4em 7em;
+    }
+    20%{
+        background-image: url(img/ninjab/stop2.png);
+
+    }
+    30%{
+        background-image: url(img/ninjab/stop3.png);
+
+    }
+    40%{
+        background-image: url(img/ninjab/stop4.png);
+
+    }
+    50%{
+        background-image: url(img/ninjab/stop5.png);
+
+    }
+    60%{
+        background-image: url(img/ninjab/stop6.png);
+
+    }
+    70%{
+        background-image: url(img/ninjab/stop7.png);
+
+    }
+    80%{
+        background-image: url(img/ninjab/stop8.png);
+
+    }
+    90%{
+        background-image: url(img/ninjab/stop9.png);
+
+    }
+    100%{
+        background-image: url(img/ninjab/stop10.png);
     }
 }
