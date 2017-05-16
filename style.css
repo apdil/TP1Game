@@ -1,12 +1,24 @@
 html{
     height:34em;
-    width:91%;
+    width:95%;
     margin: auto;
+    margin-top: 2em;
 }
 body {
-    background-image: url("img/fond.gif");
-    background-repeat: no-repeat;
+    background: url("img/fond.gif") no-repeat 50% 50%;
     background-color: black;
+    padding-right: 10%;
+    padding-left: 10%;
+    height: 100%;
+    margin:0;
+}
+main{
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+.acFlexEnd{
+    align-content: flex-end;
 }
 .fxRow{
     display:flex;
@@ -15,7 +27,10 @@ body {
 .jsSpaceAround{
     justify-content: space-around;
 }
-
+#players{
+    width: 100%;
+    margin-bottom: 1em;
+}
 .ninjagirl{
     animation: ninjaGirlStop 1s;
     animation-timing-function: step-end;
