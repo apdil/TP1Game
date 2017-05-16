@@ -14,8 +14,6 @@ body {
 }
 main{
     height: 100%;
-    display: flex;
-    align-items: flex-end;
 }
 .acFlexEnd{
     align-content: flex-end;
@@ -23,13 +21,41 @@ main{
 .fxRow{
     display:flex;
 }
-
+.fxColumn{
+    flex-direction: column;
+}
 .jsSpaceAround{
     justify-content: space-around;
+}
+.txtalignr{
+    text-align: right;
+}
+.hpname{
+    font-variant-caps: small-caps;
+    font-weight: 700;
+    font-size: 1.2em;
+    font-family: "Stencil Std, fantasy";
+    color:white;
+    letter-spacing: 0.2em;
+    text-shadow: 1px 2px 5px #000;
+    margin:0;
 }
 #players{
     width: 100%;
     margin-bottom: 1em;
+}
+#barrehp div div{
+    height:1.7em;
+    width:15em;
+    background-color: #008000;
+    border: 2px inset #b29a18;
+    box-shadow: 0 0 0.5em yellow;
+}
+#hpone{
+    transform: rotate(3deg) skewX(15deg);
+}
+#hptwo{
+    transform: rotate(-3deg) skewX(165deg);
 }
 .ninjagirl{
     animation: ninjaGirlStop 1s;

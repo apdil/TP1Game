@@ -8,8 +8,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="jsSpaceAround">
-        <div id="players" class="fxRow jsSpaceAround">
+    <main class="fxRow fxColumn jsSpaceAround">
+        <div id="barrehp" class="fxRow jsSpaceAround">
+            <div id="hpone"> <!-- 2 barres de vies -->
+                <div></div>
+                <p class="txtalignr hpname">Alien</p>
+            </div>
+            <div id="hptwo">
+                <div></div>
+                <p class="hpname">Patrick</p>
+            </div>
+        </div>
+                <div id="players" class="fxRow jsSpaceAround"> <!-- section player -->
             <div class="ninjagirl"></div>
             <div class="ninjaboy"></div>
         </div>
@@ -53,14 +63,17 @@
                 case 101 :
                     care(data[0]);
                 break;
-                case "q" :
+                case 86 :
                     strokefoot(data[0]);
                 break;
-                case "s" :
+                case 66 :
                     strokehead(data[0], data[1]);
                 break;
-                case "d" :
+                case 78 :
                     care(data[1]);
+                break;
+                default:
+                    return null;
                 break;
                 }
             
