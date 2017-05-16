@@ -1,41 +1,54 @@
-div{
-    width: 50em;
-    height: 25em;
+div img {
+    height: 30em;
+    width: 60em;
+    background-image: no-repeat;
 }
 
-.ninjagirl{
-    animation: ninjagir 2s;
+.ninja{
+    animation: ninjagir 1s;
     animation-timing-function: step-end;
-    height:2rem;
-    width:4rem;
+    animation-iteration-count: infinite;
+    height:7em;
+    width:4em;
+    position:relative;
+    margin-top:-10em;
 }
 @keyframes ninjagir{
     0%{
         background-image: url(img/ninjag/attack1.png);
+        background-size: 4em 7em;
     }
     20%{
         background-image: url(img/ninjag/attack2.png);
+
     }
     30%{
         background-image: url(img/ninjag/attack3.png);
+
     }
     40%{
         background-image: url(img/ninjag/attack4.png);
+
     }
     50%{
         background-image: url(img/ninjag/attack5.png);
+
     }
     60%{
         background-image: url(img/ninjag/attack6.png);
+
     }
     70%{
         background-image: url(img/ninjag/attack7.png);
+
     }
     80%{
         background-image: url(img/ninjag/attack8.png);
+
     }
     90%{
         background-image: url(img/ninjag/attack9.png);
+
     }
     100%{
         background-image: url(img/ninjag/attack10.png);
