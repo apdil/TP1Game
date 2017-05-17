@@ -27,6 +27,9 @@ main{
 .jsSpaceAround{
     justify-content: space-around;
 }
+.fxRowRev{
+    flex-direction: row-reverse;
+}
 .txtalignr{
     text-align: right;
 }
@@ -40,14 +43,15 @@ main{
     text-shadow: 1px 2px 5px #000;
     margin:0;
 }
+.posabsolut{
+    position:absolute;
+}
 #players{
     width: 100%;
-    margin-bottom: 1em;
 }
-#barrehp div div{
+.barreStructure{
     height:1.7em;
     width:15em;
-    background-color: #008000;
     border: 2px inset #b29a18;
     box-shadow: 0 0 0.5em yellow;
 }
@@ -57,6 +61,13 @@ main{
 #hptwo{
     transform: rotate(-3deg) skewX(165deg);
 }
+.interieureHp{
+    background-image: linear-gradient(to bottom , #5bad00, green, seagreen);
+    width:100%;
+    max-width: 100%;
+    min-width: 0;
+    height: 100%;
+}
 .ninjagirl{
     animation: ninjaGirlStop 1s;
     animation-timing-function: step-end;
@@ -64,7 +75,20 @@ main{
     height:7em;
     width:4em;
     position:relative;
-    
+}
+.ninjagirljumpattack{ 
+    animation: ninjagirlljumpattack 1s;
+    animation-timing-function: step-end;
+    height:9em;
+    width:6em;
+    position:absolute;
+}
+.ninjagirlattack{
+    animation: ninjagirllattack 1s;
+    animation-timing-function: step-end;
+    height:9em;
+    width:7em;
+    position:absolute;
 }
 .ninjaboy{
     animation: ninjaBoyStop 1s;
@@ -74,6 +98,164 @@ main{
     width:4em;
     position:relative;
 }
+.ninjaboyattack{
+    animation: ninjaboyattack 1s;
+    animation-timing-function: step-end;
+    height:8em;
+    width:8em;
+    position:absolute;
+}
+
+.ninjaboyjumpattack{ 
+    animation: ninjaboyjumpattack 1s;
+    animation-timing-function: step-end;
+    height:9em;
+    width:8em;
+    position:absolute;
+}
+
+@keyframes ninjaBoyStop{
+    0%{
+        background-image: url(img/ninjab/stop1.png);
+        background-size: 4em 7em;
+    }
+    20%{
+        background-image: url(img/ninjab/stop2.png);
+
+    }
+    30%{
+        background-image: url(img/ninjab/stop3.png);
+
+    }
+    40%{
+        background-image: url(img/ninjab/stop4.png);
+
+    }
+    50%{
+        background-image: url(img/ninjab/stop5.png);
+
+    }
+    60%{
+        background-image: url(img/ninjab/stop6.png);
+
+    }
+    70%{
+        background-image: url(img/ninjab/stop7.png);
+
+    }
+    80%{
+        background-image: url(img/ninjab/stop8.png);
+
+    }
+    90%{
+        background-image: url(img/ninjab/stop9.png);
+
+    }
+    100%{
+        background-image: url(img/ninjab/stop10.png);
+    }
+}
+
+@keyframes ninjaboyattack{
+    0%{
+        background-image: url(img/ninjab/attack1.png);
+        background-size: 8em 8em;
+        margin-left: 0;
+        margin-top: -0.3em;
+    }
+    20%{
+        background-image: url(img/ninjab/attack2.png);
+        margin-left: -26%;
+    }
+    30%{
+        background-image: url(img/ninjab/attack3.png);
+        margin-left: -26%;
+    }
+    40%{
+        background-image: url(img/ninjab/attack4.png);
+        margin-left: -26%;
+    }
+    50%{
+        background-image: url(img/ninjab/attack5.png);
+        margin-left: -26%;
+    }
+    60%{
+        background-image: url(img/ninjab/attack6.png);
+        margin-left: -26%;
+    }
+    70%{
+        background-image: url(img/ninjab/attack7.png);
+        margin-left: -26%;        
+    }
+    80%{
+        background-image: url(img/ninjab/attack8.png);
+        margin-left: -26%;
+    }
+    90%{
+        background-image: url(img/ninjab/attack9.png);
+        margin-left : -26%;
+    }
+    100%{
+        background-image: url(img/ninjab/attack10.png);
+        margin-left: -15%;
+    }
+}
+
+@keyframes ninjaboyjumpattack{
+    0%{
+        background-image: url(img/ninjab/jumpattack0.png);
+        background-size: 8em 9em;
+        margin-top: 0;
+        margin-left: 0;
+    }
+    20%{
+        background-image: url(img/ninjab/jumpattack1.png);
+        margin-top: -3em;
+        margin-left: -26%;
+    }
+    30%{
+        background-image: url(img/ninjab/jumpattack2.png);
+        margin-top: -5em;
+        margin-left: -26%;
+    }
+    40%{
+        background-image: url(img/ninjab/jumpattack3.png);
+        margin-top: -5em;
+        margin-left: -26%;
+    }
+    50%{
+        background-image: url(img/ninjab/jumpattack4.png);
+        margin-top : -3em;
+        margin-left: -26%;
+
+    }
+    60%{
+        background-image: url(img/ninjab/jumpattack5.png);
+        margin-top : -3em;
+        margin-left: -26%;
+    }
+    70%{
+        background-image: url(img/ninjab/jumpattack6.png);
+        margin-top : -3em;
+        margin-left: -26%;        
+    }
+    80%{
+        background-image: url(img/ninjab/jumpattack7.png);
+        margin-top : -3em;
+        margin-left: -26%;
+    }
+    90%{
+        background-image: url(img/ninjab/jumpattack8.png);
+        margin-top : -1em;
+        margin-left : -26%;
+    }
+    100%{
+        background-image: url(img/ninjab/jumpattack9.png);
+        margin-top: 0;
+        margin-left: -15%;
+    }
+}
+
 @keyframes ninjaGirlStop{
     0%{
         background-image: url(img/ninjag/stop1.png);
@@ -116,44 +298,102 @@ main{
     }
 }
 
-@keyframes ninjaBoyStop{
+@keyframes ninjagirllattack{
     0%{
-        background-image: url(img/ninjab/stop1.png);
-        background-size: 4em 7em;
+        background-image: url(img/ninjag/attack1.png);
+        background-size: 7em 9em;
+        margin-left: 0;
+        margin-top: -1.3em;
     }
     20%{
-        background-image: url(img/ninjab/stop2.png);
-
+        background-image: url(img/ninjag/attack2.png);
+        margin-left: 26%;
     }
     30%{
-        background-image: url(img/ninjab/stop3.png);
-
+        background-image: url(img/ninjag/attack3.png);
+        margin-left: 26%;
     }
     40%{
-        background-image: url(img/ninjab/stop4.png);
-
+        background-image: url(img/ninjag/attack4.png);
+        margin-left: 26%;
     }
     50%{
-        background-image: url(img/ninjab/stop5.png);
+        background-image: url(img/ninjag/attack5.png);
+        margin-left: 26%;
+    }
+    60%{
+        background-image: url(img/ninjag/attack6.png);
+        margin-left: 26%;
+    }
+    70%{
+        background-image: url(img/ninjag/attack7.png);
+        margin-left: 26%;        
+    }
+    80%{
+        background-image: url(img/ninjag/attack8.png);
+        margin-left: 26%;
+    }
+    90%{
+        background-image: url(img/ninjag/attack9.png);
+        margin-left : 26%;
+    }
+    100%{
+        background-image: url(img/ninjag/attack10.png);
+        margin-left: 15%;
+    }
+}
+
+@keyframes ninjagirlljumpattack{
+    0%{
+        background-image: url(img/ninjag/jumpattack0.png);
+        background-size: 6em 9em;
+        margin-top: 0;
+        margin-left: 0;
+    }
+    20%{
+        background-image: url(img/ninjag/jumpattack1.png);
+        margin-top: -3em;
+        margin-left: 26%;
+    }
+    30%{
+        background-image: url(img/ninjag/jumpattack2.png);
+        margin-top: -5em;
+        margin-left: 26%;
+    }
+    40%{
+        background-image: url(img/ninjag/jumpattack3.png);
+        margin-top: -5em;
+        margin-left: 26%;
+    }
+    50%{
+        background-image: url(img/ninjag/jumpattack4.png);
+        margin-top : -3em;
+        margin-left: 26%;
 
     }
     60%{
-        background-image: url(img/ninjab/stop6.png);
-
+        background-image: url(img/ninjag/jumpattack5.png);
+        margin-top : -3em;
+        margin-left: 26%;
     }
     70%{
-        background-image: url(img/ninjab/stop7.png);
-
+        background-image: url(img/ninjag/jumpattack6.png);
+        margin-top : -3em;
+        margin-left: 26%;        
     }
     80%{
-        background-image: url(img/ninjab/stop8.png);
-
+        background-image: url(img/ninjag/jumpattack7.png);
+        margin-top : -3em;
+        margin-left: 26%;
     }
     90%{
-        background-image: url(img/ninjab/stop9.png);
-
+        background-image: url(img/ninjag/jumpattack8.png);
+        margin-top : -1em;
+        margin-left : 26%;
     }
     100%{
-        background-image: url(img/ninjab/stop10.png);
+        background-image: url(img/ninjag/jumpattack9.png);
+        margin-top: 0;
+        margin-left: 15%;
     }
 }

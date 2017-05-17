@@ -11,17 +11,23 @@
     <main class="fxRow fxColumn jsSpaceAround">
         <div id="barrehp" class="fxRow jsSpaceAround">
             <div id="hpone"> <!-- 2 barres de vies -->
-                <div></div>
+                <div class="barreStructure fxRow fxRowRev"> <!-- barre verte -->
+                    <div id="interieureHpG" class="interieureHp">
+                    </div>
+                </div>
                 <p class="txtalignr hpname">Alien</p>
             </div>
             <div id="hptwo">
-                <div></div>
+                <div class="barreStructure">
+                    <div id="interieureHpD" class="interieureHp">
+                    </div>
+                </div>
                 <p class="hpname">Patrick</p>
             </div>
         </div>
-                <div id="players" class="fxRow jsSpaceAround"> <!-- section player -->
-            <div class="ninjagirl"></div>
-            <div class="ninjaboy"></div>
+        <div id="players" class="fxRow jsSpaceAround"> <!-- section player -->
+            <div><div class="ninjagirl"></div></div> <!-- pk 2 div??? devine -->
+            <div><div class="ninjaboy"></div></div>
         </div>
     </main>
         
@@ -39,38 +45,64 @@
         function care(player){
             player.life += 15;
         }
-
+        function mooveHp(id, indexdata) {
+            document.querySelector(id).style.width =+ indexdata + "%"
+        }
+        function animend(queryclass, changeclass, newclass) {
+            document.body.querySelector(queryclass).addEventListener("animationend", function(){
+                changeclass.classList = newclass;
+            });
+        }
         let perso1 = new Object();
         perso1.life = 100;
         let perso2 = new Object();
         perso2.life = 100;
-   
+        
+        let ninjagirl = document.body.querySelector(".ninjagirl");
+        let ninjaboy = document.body.querySelector(".ninjaboy");
+
         data.push(perso1); // data[0]
         data.push(perso2); // data[1]
 
-        //while(data[1].life !== 0 && data[0].life !== 0){ // pour l'instant boucle infini donc false
+        //while(data[1].life !== 0 && data[0].life !== 0){ // pour l'instant boucle infini donc faux
             
             document.addEventListener("keypress", function(e){
             let entre = e.keyCode;
 
             switch(entre){
-                case 97 :
-                    strokefoot(data[1]);
+                case 97 : // a
+                    strokefoot(data[1]); // attaque et modifier les life de la victime
+                    mooveHp("#interieureHpD", data[1].life); // modifie la barre des HP
+                    ninjagirl.classList = "ninjagirlattack";
+                    animend(".ninjagirlattack", ninjagirl, "ninjagirl");
                 break;
-                case 122 :
+                case 122 : // z
                     strokehead(data[1], data[0]);
+                    mooveHp("#interieureHpD", data[1].life);
+                    mooveHp("#interieureHpG", data[0].life);
+                    ninjagirl.classList = "ninjagirljumpattack";
+                    animend(".ninjagirljumpattack", ninjagirl, "ninjagirl");
                 break;
-                case 101 :
+                case 101 : // e
                     care(data[0]);
+                    mooveHp("#interieureHpG", data[0].life);
                 break;
-                case 86 :
+                case 86 : // v
                     strokefoot(data[0]);
+                    mooveHp("#interieureHpG", data[0].life);
+                    ninjaboy.classList = "ninjaboyattack";
+                    animend(".ninjaboyattack", ninjaboy, "ninjaboy");
                 break;
-                case 66 :
+                case 66 : // b
                     strokehead(data[0], data[1]);
+                    mooveHp("#interieureHpG", data[0].life);
+                    mooveHp("#interieureHpD", data[1].life);
+                    ninjaboy.classList = "ninjaboyjumpattack";
+                    animend(".ninjaboyjumpattack", ninjaboy, "ninjaboy");
                 break;
-                case 78 :
+                case 78 : // n
                     care(data[1]);
+                    mooveHp("#interieureHpD", data[1].life);
                 break;
                 default:
                     return null;
