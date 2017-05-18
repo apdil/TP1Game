@@ -11,8 +11,9 @@
     <main class="fxRow fxColumn jsSpaceAround">
         <div id="barrehp" class="fxRow jsSpaceAround">
             <div id="hpone"> <!-- 2 barres de vies -->
-                <div class="barreStructure fxRow fxRowRev"> <!-- barre verte -->
-                    <div id="interieureHpG" class="interieureHp">
+                <div class="barreStructure scaleX"> <!-- barre verte -->
+                    <div id="interieureHpG" class="interieureHp">  <!-- Crée pour anim damage par dessu -->
+                        <div class="heightmax"></div>
                     </div>
                 </div>
                 <p class="txtalignr hpname">Alien</p>
@@ -20,6 +21,7 @@
             <div id="hptwo">
                 <div class="barreStructure">
                     <div id="interieureHpD" class="interieureHp">
+                        <div class="heighthalf"></div> <!-- Crée pour anim damage par dessu -->
                     </div>
                 </div>
                 <p class="hpname">Patrick</p>
@@ -60,6 +62,8 @@
         
         let ninjagirl = document.body.querySelector(".ninjagirl");
         let ninjaboy = document.body.querySelector(".ninjaboy");
+        let hpdanim = document.body.querySelector("#interieureHpD div");
+        let hpganim = document.body.querySelector("#interieureHpG div");
 
         data.push(perso1); // data[0]
         data.push(perso2); // data[1]
@@ -75,6 +79,11 @@
                     mooveHp("#interieureHpD", data[1].life); // modifie la barre des HP
                     ninjagirl.classList = "ninjagirlattack";
                     animend(".ninjagirlattack", ninjagirl, "ninjagirl");
+                    ninjaboy.classList = "ninjadamag";
+                    animend(".ninjadamag", ninjaboy, "ninjaboy");
+                    hpdanim.classList = "electrHp heighthalf";
+                    animend(".electrHp", hpdanim, "hpdanim");
+
                 break;
                 case 122 : // z
                     strokehead(data[1], data[0]);
@@ -82,6 +91,10 @@
                     mooveHp("#interieureHpG", data[0].life);
                     ninjagirl.classList = "ninjagirljumpattack";
                     animend(".ninjagirljumpattack", ninjagirl, "ninjagirl");
+                    ninjaboy.classList = "ninjadamag";
+                    animend(".ninjadamag", ninjaboy, "ninjaboy");
+                    hpdanim.classList = "electrHp heighthalf";
+                    animend(".electrHp", hpdanim, "hpdanim");
                 break;
                 case 101 : // e
                     care(data[0]);
@@ -92,6 +105,10 @@
                     mooveHp("#interieureHpG", data[0].life);
                     ninjaboy.classList = "ninjaboyattack";
                     animend(".ninjaboyattack", ninjaboy, "ninjaboy");
+                    ninjagirl.classList = "ninjadamag";
+                    animend(".ninjadamag", ninjagirl, "ninjagirl");
+                    hpganim.classList = "electrHp heightmax";
+                    animend(".electrHp", hpganim, "hpganim");
                 break;
                 case 66 : // b
                     strokehead(data[0], data[1]);
@@ -99,6 +116,10 @@
                     mooveHp("#interieureHpD", data[1].life);
                     ninjaboy.classList = "ninjaboyjumpattack";
                     animend(".ninjaboyjumpattack", ninjaboy, "ninjaboy");
+                    ninjagirl.classList = "ninjadamag";
+                    animend(".ninjadamag", ninjagirl, "ninjagirl");
+                    hpganim.classList = "electrHp heightmax";
+                    animend(".electrHp", hpganim, "hpganim");
                 break;
                 case 78 : // n
                     care(data[1]);
