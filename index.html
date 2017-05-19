@@ -13,10 +13,15 @@
             <div id="hpone"> <!-- 2 barres de vies -->
                 <div class="barreStructure scaleX"> <!-- barre verte -->
                     <div id="interieureHpG" class="interieureHp">  <!-- Crée pour anim damage par dessu -->
-                        <div class="heightmax"></div>
+                        <div></div>
                     </div>
                 </div>
-                <p class="txtalignr hpname">Alien</p>
+                <div class="fxRow widthfull jsSpaceBetween">
+                    <div class="mana">
+                        <div id="colormanaL" class="heightmax widthfull"></div>
+                    </div>
+                    <p class="hpname">Alien</p>
+                </div>
             </div>
             <div id="hptwo">
                 <div class="barreStructure">
@@ -24,10 +29,15 @@
                         <div class="heighthalf"></div> <!-- Crée pour anim damage par dessu -->
                     </div>
                 </div>
-                <p class="hpname">Patrick</p>
+                <div class="fxRow widthfull jsSpaceBetween">
+                    <p class="hpname">Patrick</p>
+                    <div class="mana scaleX">
+                        <div id="colormanaR" class="heightmax widthfull"></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="players" class="fxRow jsSpaceAround"> <!-- section player -->
+        <div class="fxRow jsSpaceAround witdhfull"> <!-- section player -->
             <div><div class="ninjagirl"></div></div> <!-- pk 2 div??? devine -->
             <div><div class="ninjaboy"></div></div>
         </div>
@@ -36,37 +46,48 @@
     <script>
         
         let data = [];
+
+        let perso1 = new Object();
+        perso1.life = 100;
+        perso1.power = 10;
+        perso1.mana = 0;
+        let perso2 = new Object();
+        perso2.life = 100;
+        perso2.power = 10;
+        perso2.mana = 0;
+
+        data.push(perso1); // data[0]
+        data.push(perso2); // data[1]
         
-        function strokefoot(player){
-            player.life -= 10;
+        let ninjagirl = document.body.querySelector(".ninjagirl");
+        let ninjaboy = document.body.querySelector(".ninjaboy");
+        let hpdanim = document.body.querySelector("#interieureHpD div");
+        let hpganim = document.body.querySelector("#interieureHpG div");
+        
+        function strokefoot(player, player2){
+            player.power = 10;
+            player.life -= player2.power;
         }
         function strokehead(player, player2){
-            player.life -= 20;
+            player2.power = 20;
+            player.life -= player2.power;
             player2.life -= 5;
         }
         function care(player){
             player.life += 15;
         }
         function mooveHp(id, indexdata) {
-            document.querySelector(id).style.width =+ indexdata + "%"
+            document.querySelector(id).style.width = indexdata + "%"
+        }
+        function moovemana(id, player){
+            player.mana += player.power;
+            let a = document.querySelector(id).style.width = player.mana + "%";
         }
         function animend(queryclass, changeclass, newclass) {
             document.body.querySelector(queryclass).addEventListener("animationend", function(){
                 changeclass.classList = newclass;
             });
         }
-        let perso1 = new Object();
-        perso1.life = 100;
-        let perso2 = new Object();
-        perso2.life = 100;
-        
-        let ninjagirl = document.body.querySelector(".ninjagirl");
-        let ninjaboy = document.body.querySelector(".ninjaboy");
-        let hpdanim = document.body.querySelector("#interieureHpD div");
-        let hpganim = document.body.querySelector("#interieureHpG div");
-
-        data.push(perso1); // data[0]
-        data.push(perso2); // data[1]
 
         //while(data[1].life !== 0 && data[0].life !== 0){ // pour l'instant boucle infini donc faux
             
@@ -75,7 +96,7 @@
 
             switch(entre){
                 case 97 : // a
-                    strokefoot(data[1]); // attaque et modifier les life de la victime
+                    strokefoot(data[1], data[0]); // attaque et modifier les life de la victime
                     mooveHp("#interieureHpD", data[1].life); // modifie la barre des HP
                     ninjagirl.classList = "ninjagirlattack";
                     animend(".ninjagirlattack", ninjagirl, "ninjagirl");
@@ -83,6 +104,7 @@
                     animend(".ninjadamag", ninjaboy, "ninjaboy");
                     hpdanim.classList = "electrHp heighthalf";
                     animend(".electrHp", hpdanim, "hpdanim");
+                    moovemana("#colormanaL", perso1);
 
                 break;
                 case 122 : // z
@@ -95,13 +117,15 @@
                     animend(".ninjadamag", ninjaboy, "ninjaboy");
                     hpdanim.classList = "electrHp heighthalf";
                     animend(".electrHp", hpdanim, "hpdanim");
+                    moovemana("#colormanaL", perso1);
+
                 break;
                 case 101 : // e
                     care(data[0]);
                     mooveHp("#interieureHpG", data[0].life);
                 break;
-                case 86 : // v
-                    strokefoot(data[0]);
+                case 105 : // v
+                    strokefoot(data[0], data[1]);
                     mooveHp("#interieureHpG", data[0].life);
                     ninjaboy.classList = "ninjaboyattack";
                     animend(".ninjaboyattack", ninjaboy, "ninjaboy");
@@ -109,8 +133,10 @@
                     animend(".ninjadamag", ninjagirl, "ninjagirl");
                     hpganim.classList = "electrHp heightmax";
                     animend(".electrHp", hpganim, "hpganim");
+                    moovemana("#colormanaR", perso2);
+
                 break;
-                case 66 : // b
+                case 111 : // b
                     strokehead(data[0], data[1]);
                     mooveHp("#interieureHpG", data[0].life);
                     mooveHp("#interieureHpD", data[1].life);
@@ -120,8 +146,10 @@
                     animend(".ninjadamag", ninjagirl, "ninjagirl");
                     hpganim.classList = "electrHp heightmax";
                     animend(".electrHp", hpganim, "hpganim");
+                    moovemana("#colormanaR", perso2);
+                    
                 break;
-                case 78 : // n
+                case 112 : // n
                     care(data[1]);
                     mooveHp("#interieureHpD", data[1].life);
                 break;

@@ -27,6 +27,9 @@ main{
 .jsSpaceAround{
     justify-content: space-around;
 }
+.jsSpaceBetween{
+    justify-content: space-between;
+}
 .scaleX{
     transform: scaleX(-1);
 }
@@ -52,7 +55,7 @@ main{
 .posabsolut{
     position:absolute;
 }
-#players{
+.widthfull{
     width: 100%;
 }
 .barreStructure{
@@ -74,6 +77,21 @@ main{
     min-width: -20%;
     height: 100%;
 }
+.mana{
+    height: 0.5em;
+    width: 45%;
+}
+#colormanaR{
+    background-image: linear-gradient(to bottom , #000080, #0000cc, #4d4dff);
+    width:0%;
+    max-width: 100%;
+}
+#colormanaL{
+    background-image: linear-gradient(to bottom , #000080, #0000cc, #4d4dff);
+    width:0%;
+    max-width: 100%;
+}
+
 .ninjagirl{
     animation: ninjaGirlStop 1s;
     animation-timing-function: step-end;
