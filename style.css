@@ -80,6 +80,10 @@ main{
 .mana{
     height: 0.5em;
     width: 45%;
+    border: 2px inset #4d4dff;
+    border-right: none;
+    border-top: none;
+
 }
 #colormanaR{
     background-image: linear-gradient(to bottom , #000080, #0000cc, #4d4dff);

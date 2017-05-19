@@ -51,10 +51,13 @@
         perso1.life = 100;
         perso1.power = 10;
         perso1.mana = 0;
+        perso1.uplife = 10;
+
         let perso2 = new Object();
         perso2.life = 100;
         perso2.power = 10;
         perso2.mana = 0;
+        perso2.uplife = 10;
 
         data.push(perso1); // data[0]
         data.push(perso2); // data[1]
@@ -71,16 +74,21 @@
         function strokehead(player, player2){
             player2.power = 20;
             player.life -= player2.power;
-            player2.life -= 5;
+            player2.life -= player.power/2;
+            player2.power = 10;
         }
         function care(player){
-            player.life += 15;
+            player.life += player.uplife;
         }
         function mooveHp(id, indexdata) {
             document.querySelector(id).style.width = indexdata + "%"
         }
         function moovemana(id, player){
             player.mana += player.power;
+            let a = document.querySelector(id).style.width = player.mana *2 + "%";
+        }
+        function moovemanaMoins(id, player){
+            player.mana -= player.uplife;
             let a = document.querySelector(id).style.width = player.mana + "%";
         }
         function animend(queryclass, changeclass, newclass) {
@@ -95,7 +103,7 @@
             let entre = e.keyCode;
 
             switch(entre){
-                case 97 : // a
+                case 97 : // a player1
                     strokefoot(data[1], data[0]); // attaque et modifier les life de la victime
                     mooveHp("#interieureHpD", data[1].life); // modifie la barre des HP
                     ninjagirl.classList = "ninjagirlattack";
@@ -104,10 +112,10 @@
                     animend(".ninjadamag", ninjaboy, "ninjaboy");
                     hpdanim.classList = "electrHp heighthalf";
                     animend(".electrHp", hpdanim, "hpdanim");
-                    moovemana("#colormanaL", perso1);
+                    moovemana("#colormanaL", data[0]);
 
                 break;
-                case 122 : // z
+                case 122 : // z player 1
                     strokehead(data[1], data[0]);
                     mooveHp("#interieureHpD", data[1].life);
                     mooveHp("#interieureHpG", data[0].life);
@@ -117,14 +125,16 @@
                     animend(".ninjadamag", ninjaboy, "ninjaboy");
                     hpdanim.classList = "electrHp heighthalf";
                     animend(".electrHp", hpdanim, "hpdanim");
-                    moovemana("#colormanaL", perso1);
+                    moovemana("#colormanaL", data[0]);
 
                 break;
-                case 101 : // e
+                case 101 : // e player 1
                     care(data[0]);
                     mooveHp("#interieureHpG", data[0].life);
+                    moovemanaMoins("#colormanaL", data[0]);
+
                 break;
-                case 105 : // v
+                case 105 : // v player 2
                     strokefoot(data[0], data[1]);
                     mooveHp("#interieureHpG", data[0].life);
                     ninjaboy.classList = "ninjaboyattack";
@@ -133,10 +143,10 @@
                     animend(".ninjadamag", ninjagirl, "ninjagirl");
                     hpganim.classList = "electrHp heightmax";
                     animend(".electrHp", hpganim, "hpganim");
-                    moovemana("#colormanaR", perso2);
+                    moovemana("#colormanaR", data[1]);
 
                 break;
-                case 111 : // b
+                case 111 : // b player 2
                     strokehead(data[0], data[1]);
                     mooveHp("#interieureHpG", data[0].life);
                     mooveHp("#interieureHpD", data[1].life);
@@ -146,12 +156,14 @@
                     animend(".ninjadamag", ninjagirl, "ninjagirl");
                     hpganim.classList = "electrHp heightmax";
                     animend(".electrHp", hpganim, "hpganim");
-                    moovemana("#colormanaR", perso2);
+                    moovemana("#colormanaR", data[1]);
                     
                 break;
-                case 112 : // n
+                case 112 : // n player 2
                     care(data[1]);
                     mooveHp("#interieureHpD", data[1].life);
+                    moovemanaMoins("#colormanaR", data[1]);
+
                 break;
                 default:
                     return null;
